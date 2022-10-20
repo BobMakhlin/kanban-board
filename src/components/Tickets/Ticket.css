@@ -1,9 +1,8 @@
 .ticket {
-    width: 16em;
-    margin: 0.5em; /*temporary*/
     box-shadow: 0px 0px 5px -2px #000000;
     border-radius: 3px;
     padding: 1em 0.825em;
+    background-color: white;
 }
 
 .ticket__epic {

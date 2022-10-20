@@ -4,7 +4,7 @@
   height: 100%;
 }
 
-.board__column {
+.board__column-wrapper {
   height: 100%;
-  justify-self: center;
+  padding: 0 0.6em;
 }
