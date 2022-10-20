@@ -1,10 +1,10 @@
 import './App.css';
-import Ticket from './components/Tickets/Ticket';
+import Board from './components/Tickets/Board';
 
 function App() {
   return (
     <div className="App">
-      <Ticket />
+      <Board />
     </div>
   );
 }
