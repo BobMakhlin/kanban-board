@@ -1,0 +1,29 @@
+.ticket {
+    /* height: 7.5em; */
+    width: 16em;
+    margin: 0.5em; /*temporary*/
+    box-shadow: 0px 0px 5px -2px #000000;
+    border-radius: 3px;
+    padding: 1em 0.825em;
+}
+
+.ticket__epic {
+    margin: 1.2em 0;
+}
+
+.ticket-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ticket-footer span, .ticket-footer img {
+    vertical-align: middle;
+}
+
+.ticket-footer__left img {
+    margin-right: 0.45em;
+}
+
+.ticket-footer__priority {
+    height: 19px;
+}
