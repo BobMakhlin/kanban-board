@@ -1,6 +1,5 @@
 import "./Board.css";
 import BoardColumn from "./BoardColumn";
-import Ticket from "./Ticket";
 
 const Board = (props) => {
   return (
