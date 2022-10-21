@@ -5,16 +5,16 @@ const Board = (props) => {
   return (
     <div className="board">
       <div className="board__column-wrapper">
-        <BoardColumn />
+        <BoardColumn header="TO DO" />
       </div>
       <div className="board__column-wrapper">
-        <BoardColumn />
+        <BoardColumn header="IN PROGRESS" />
       </div>
       <div className="board__column-wrapper">
-        <BoardColumn />
+        <BoardColumn header="IN REVIEW" />
       </div>
       <div className="board__column-wrapper">
-        <BoardColumn />
+        <BoardColumn header="DONE" />
       </div>
     </div>
   );

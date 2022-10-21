@@ -1,6 +1,17 @@
 .board-column {
     height: 100%;
     background-color: #d3d3d3;
-    padding: 0.35em;
+    padding: 0.25em;
     box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.board-column__header {
+    margin-top: 0.35em;
+    margin-bottom: 1.2em;
+    font-weight: 500;
+}
+
+.board-column__ticket {
+    margin-bottom: 0.25em;
 }
