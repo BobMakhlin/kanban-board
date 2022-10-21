@@ -2,4 +2,5 @@
     height: 100%;
     background-color: #d3d3d3;
     padding: 0.35em;
+    box-sizing: border-box;
 }
