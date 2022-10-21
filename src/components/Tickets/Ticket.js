@@ -1,7 +1,7 @@
 import "./Ticket.css";
 
 const Ticket = (props) => {
-  let typeImg = "";
+  let typeImg;
   switch (props.model.type) {
     case "task":
       typeImg = "/icons/task.svg";
@@ -12,9 +12,12 @@ const Ticket = (props) => {
     case "story":
       typeImg = "/icons/story.svg";
       break;
+    default:
+      typeImg = "";
+      break;
   }
 
-  let priorityImg = "";
+  let priorityImg;
   switch (props.model.priority) {
     case "low":
       priorityImg = "/icons/low.svg";
@@ -27,6 +30,9 @@ const Ticket = (props) => {
       break;
     case "blocker":
       priorityImg = "/icons/blocker.svg";
+      break;
+    default:
+      priorityImg = "";
       break;
   }
 
