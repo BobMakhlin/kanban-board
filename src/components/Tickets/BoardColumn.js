@@ -4,20 +4,26 @@ import Ticket from "./Ticket";
 const BoardColumn = (props) => {
   const ticket1Model = {
     summary: "Engage Jupiter Express for outer solar system travel",
-    epic: "SPACE TRAVEL PARTNERS",
+    epic: {
+      name: "SPACE TRAVEL PARTNERS",
+      color: "yellow",
+    },
     storyPoints: 5,
     number: "TIS-25",
     type: "task",
-    priority: "major"
+    priority: "major",
   };
-  
+
   const ticket2Model = {
     summary: "Create 90 day plan for all departments in the Mars Office",
-    epic: "LOCAL MARS OFFICE",
+    epic: {
+      name: "LOCAL MARS OFFICE",
+      color: "orange",
+    },
     storyPoints: 9,
     number: "TIS-12",
     type: "story",
-    priority: "low"
+    priority: "low",
   };
 
   return (

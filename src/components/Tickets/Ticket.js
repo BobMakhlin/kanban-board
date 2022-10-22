@@ -1,3 +1,4 @@
+import Label from "../UI/Label";
 import "./Ticket.css";
 
 const Ticket = (props) => {
@@ -39,7 +40,9 @@ const Ticket = (props) => {
   return (
     <div className="ticket">
       <div className="ticket__summary">{props.model.summary}</div>
-      <div className="ticket__epic">{props.model.epic}</div>
+      <div className="ticket__epic">
+        <Label text={props.model.epic.name} color={props.model.epic.color} />
+      </div>
       <div className="ticket-footer">
         <div className="ticket-footer__left">
           <img className="ticket-footer__type" src={typeImg} alt="" />
