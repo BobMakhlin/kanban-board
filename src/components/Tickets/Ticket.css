@@ -14,11 +14,8 @@
     justify-content: space-between;
 }
 
-.ticket-footer span, .ticket-footer img {
+.ticket-footer__type, .ticket-footer__priority, .ticket-footer__story-points {
     vertical-align: middle;
-}
-
-.ticket-footer__left img {
     margin-right: 0.45em;
 }
 
