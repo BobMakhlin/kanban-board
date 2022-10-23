@@ -1,5 +1,5 @@
 import "./BoardColumn.css";
-import Ticket from "./Ticket";
+import Ticket from "../Tickets/Ticket";
 
 const BoardColumn = (props) => {
   const ticket1Model = {
