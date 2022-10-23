@@ -1,6 +1,7 @@
 import Label from "../UI/Label";
 import TicketType from "./TicketType";
 import TicketPriority from "./TicketPriority";
+import StoryPoints from "./StoryPoints";
 import "./Ticket.css";
 
 const Ticket = (props) => {
@@ -17,9 +18,10 @@ const Ticket = (props) => {
             className="ticket-footer__priority"
             priority={props.model.priority}
           />
-          <span className="ticket-footer__story-points">
-            {props.model.storyPoints}
-          </span>
+          <StoryPoints
+            className="ticket-footer__story-points"
+            value={props.model.storyPoints}
+          />
         </div>
         <div className="ticket-footer__right">
           <span className="ticket-footer__number">{props.model.number}</span>

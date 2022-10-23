@@ -20,7 +20,7 @@ const BoardColumn = (props) => {
       name: "LOCAL MARS OFFICE",
       color: "orange",
     },
-    storyPoints: 9,
+    storyPoints: 13,
     number: "TIS-12",
     type: "story",
     priority: "low",
