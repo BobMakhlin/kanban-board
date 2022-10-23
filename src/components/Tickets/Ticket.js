@@ -19,10 +19,10 @@ const Ticket = (props) => {
             className="ticket-footer__priority"
             priority={props.model.priority}
           />
-          <StoryPoints
+          {props.model.storyPoints && <StoryPoints
             className="ticket-footer__story-points"
             value={props.model.storyPoints}
-          />
+          />}
         </div>
         <div className="ticket-footer__right">
           <span className="ticket-footer__number">{props.model.number}</span>

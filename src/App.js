@@ -135,7 +135,7 @@ const DEMO_TICKETS = [
       name: "SPACE TRAVEL PARTNERS",
       color: "yellow",
     },
-    storyPoints: 5,
+    storyPoints: null,
     number: "TIS-23",
     type: "story",
     priority: "major",
