@@ -12,6 +12,7 @@ const BoardColumn = (props) => {
     number: "TIS-25",
     type: "task",
     priority: "major",
+    avatar: "/icons/avatar1.jpg"
   };
 
   const ticket2Model = {
@@ -24,6 +25,7 @@ const BoardColumn = (props) => {
     number: "TIS-12",
     type: "story",
     priority: "low",
+    // avatar: "/icons/avatar2.jpg"
   };
 
   return (

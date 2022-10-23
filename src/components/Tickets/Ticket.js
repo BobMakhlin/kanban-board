@@ -1,4 +1,5 @@
 import Label from "../UI/Label";
+import Avatar from "../UI/Avatar";
 import TicketType from "./TicketType";
 import TicketPriority from "./TicketPriority";
 import StoryPoints from "./StoryPoints";
@@ -25,6 +26,7 @@ const Ticket = (props) => {
         </div>
         <div className="ticket-footer__right">
           <span className="ticket-footer__number">{props.model.number}</span>
+          <Avatar className="ticket-footer__avatar" src={props.model.avatar} />
         </div>
       </div>
     </div>

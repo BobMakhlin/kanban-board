@@ -14,11 +14,19 @@
     justify-content: space-between;
 }
 
+.ticket-footer__left, .ticket-footer__right {
+    display: flex;
+    align-items: center;
+}
+
 .ticket-footer__type, .ticket-footer__priority, .ticket-footer__story-points {
-    vertical-align: middle;
     margin-right: 0.45em;
 }
 
 .ticket-footer__priority {
     height: 19px;
+}
+
+.ticket-footer__avatar {
+    margin-left: 0.35em;
 }
