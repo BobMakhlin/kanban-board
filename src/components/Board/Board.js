@@ -1,3 +1,4 @@
+import Search from "../UI/Search";
 import "./Board.css";
 import BoardColumn from "./BoardColumn";
 
@@ -8,14 +9,22 @@ const Board = (props) => {
 
   return (
     <div className="board">
-      {props.categories.map((category) => (
-        <div key={category.id} className="board__column-wrapper">
-          <BoardColumn
-            header={category.name}
-            tickets={findCategoryTickets(category.id)}
-          />
-        </div>
-      ))}
+      <h1>Board</h1>
+
+      <div className="board__toolbar">
+        <Search className="board__search" />
+      </div>
+
+      <div className="tickets">
+        {props.categories.map((category) => (
+          <div key={category.id} className="board__column-wrapper">
+            <BoardColumn
+              header={category.name}
+              tickets={findCategoryTickets(category.id)}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
