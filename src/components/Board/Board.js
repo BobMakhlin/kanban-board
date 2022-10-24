@@ -1,10 +1,15 @@
+import { useState } from "react";
 import Search from "../UI/Search";
 import "./Board.css";
 import BoardColumn from "./BoardColumn";
 
 const Board = (props) => {
+  const [searchValue, setSearchValue] = useState("");
+
   const findCategoryTickets = (categoryId) => {
-    return props.tickets.filter((ticket) => ticket.categoryId === categoryId);
+    return props.tickets
+      .filter((ticket) => ticket.summary.includes(searchValue))
+      .filter((ticket) => ticket.categoryId === categoryId);
   };
 
   return (
@@ -12,7 +17,10 @@ const Board = (props) => {
       <h1>Board</h1>
 
       <div className="board__toolbar">
-        <Search className="board__search" />
+        <Search
+          onChange={(value) => setSearchValue(value)}
+          className="board__search"
+        />
       </div>
 
       <div className="tickets">
