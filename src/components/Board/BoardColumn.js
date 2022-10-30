@@ -1,13 +1,13 @@
-import "./BoardColumn.css";
 import Ticket from "../Tickets/Ticket";
+import styles from './BoardColumn.module.css'
 
 const BoardColumn = (props) => {
   return (
-    <div className="board-column">
-      <div className="board-column__header">{props.header}</div>
-      <div className="board-column__tickets">
+    <div className={styles.column}>
+      <div className={styles.header}>{props.header}</div>
+      <div>
         {props.tickets?.map((ticketModel) => (
-          <div key={ticketModel.id} className="board-column__ticket">
+          <div key={ticketModel.id} className={styles.ticket}>
             <Ticket model={ticketModel} />
           </div>
         ))}
