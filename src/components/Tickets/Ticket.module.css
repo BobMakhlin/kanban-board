@@ -5,28 +5,28 @@
     background-color: white;
 }
 
-.ticket__epic {
+.epic {
     margin: 0.85em 0;
 }
 
-.ticket-footer {
+.footer {
     display: flex;
     justify-content: space-between;
 }
 
-.ticket-footer__left, .ticket-footer__right {
+.footerLeft, .footerRight {
     display: flex;
     align-items: center;
 }
 
-.ticket-footer__type, .ticket-footer__priority, .ticket-footer__story-points {
+.type, .priority, .storyPoints {
     margin-right: 0.45em;
 }
 
-.ticket-footer__priority {
+.priority {
     height: 19px;
 }
 
-.ticket-footer__avatar {
+.avatar {
     margin-left: 0.35em;
 }

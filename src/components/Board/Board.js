@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Search from "../UI/Search";
-import "./Board.css";
+import styles from "./Board.module.css";
 import BoardColumn from "./BoardColumn";
 
 const Board = (props) => {
@@ -13,19 +13,16 @@ const Board = (props) => {
   };
 
   return (
-    <div className="board">
+    <div className={styles.board}>
       <h1>Board</h1>
 
-      <div className="board__toolbar">
-        <Search
-          onChange={(value) => setSearchValue(value)}
-          className="board__search"
-        />
+      <div className={styles.toolbar}>
+        <Search onChange={(value) => setSearchValue(value)} />
       </div>
 
-      <div className="tickets">
+      <div className={styles.tickets}>
         {props.categories.map((category) => (
-          <div key={category.id} className="board__column-wrapper">
+          <div key={category.id} className={styles.columnWrapper}>
             <BoardColumn
               header={category.name}
               tickets={findCategoryTickets(category.id)}

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import "./Search.css";
+import styles from "./Search.module.css";
 
 const DEFAULT_DELAY = 1000;
 
@@ -10,7 +10,7 @@ const Search = (props) => {
     }, props.delay ?? DEFAULT_DELAY);
   };
 
-  const cssClass = classNames("search", props.className);
+  const cssClass = classNames(styles.search, props.className);
   return <input onChange={changeHandler} className={cssClass} />;
 };
 

@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-.board__toolbar {
+.toolbar {
   margin-top: 2.3em;
   margin-bottom: 1.6em;
 }
@@ -21,6 +21,6 @@
   flex-grow: 1;
 }
 
-.board__column-wrapper {
+.columnWrapper {
   height: 100%;
 }

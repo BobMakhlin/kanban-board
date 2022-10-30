@@ -1,8 +1,8 @@
 import classNames from "classnames";
-import "./StoryPoints.css";
+import styles from "./StoryPoints.module.css";
 
 const StoryPoints = (props) => {
-  const cssClass = classNames("story-points", props.className);
+  const cssClass = classNames(styles.storyPoints, props.className);
   return <span className={cssClass}>{props.value}</span>;
 };
 

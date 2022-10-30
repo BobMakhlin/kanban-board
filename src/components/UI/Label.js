@@ -1,4 +1,4 @@
-import "./Label.css";
+import styles from "./Label.module.css";
 
 const YELLOW = "#ffc200";
 const ORANGE = "#f18100";
@@ -36,7 +36,7 @@ const Label = (props) => {
   }
 
   return (
-    <span className="label" style={{ backgroundColor, color: textColor }}>
+    <span className={styles.label} style={{ backgroundColor, color: textColor }}>
       {props.text}
     </span>
   );
