@@ -8,7 +8,9 @@ const Board = (props) => {
 
   const findCategoryTickets = (categoryId) => {
     return props.tickets
-      .filter((ticket) => ticket.summary.includes(searchValue))
+      .filter((ticket) =>
+        ticket.summary.toUpperCase().includes(searchValue.toUpperCase())
+      )
       .filter((ticket) => ticket.categoryId === categoryId);
   };
 
