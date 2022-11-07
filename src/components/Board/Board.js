@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Search from "../UI/Search";
+import SearchInput from "../UI/SearchInput";
 import styles from "./Board.module.css";
 import BoardColumn from "./BoardColumn";
 
@@ -19,7 +19,7 @@ const Board = (props) => {
       <h1>Board</h1>
 
       <div className={styles.toolbar}>
-        <Search onChange={(value) => setSearchValue(value)} />
+        <SearchInput onChange={(value) => setSearchValue(value)} />
       </div>
 
       <div className={styles.tickets}>
