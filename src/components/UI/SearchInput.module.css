@@ -15,7 +15,10 @@
   outline: none;
 }
 
-.icon {
+.iconButton {
+  border: 0;
+  background: transparent;
+  padding: 0;
   color: black;
   position: relative;
   font-size: 1.2em;
