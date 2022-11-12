@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { useRef } from "react";
 
 const DEFAULT_DELAY = 1000;
+const BUTTON_ICONS = {
+  false: "fa-circle-xmark",
+  true: "fa-magnifying-glass",
+};
 
-const SearchInput = ({ onChange, delay }) => {
+const SearchInput = ({ onChange, delay = DEFAULT_DELAY }) => {
   const [value, setValue] = useState("");
-  const [isEmpty, setIsEmpty] = useState(true);
   const timeoutId = useRef();
 
   useEffect(() => {
@@ -15,36 +18,36 @@ const SearchInput = ({ onChange, delay }) => {
     };
   }, []);
 
+  const isEmpty = () => {
+    return value === "";
+  };
+
   const changeWithDebounce = (value) => {
     setValue(value);
-    setIsEmpty(!value);
 
     clearTimeout(timeoutId.current);
 
     timeoutId.current = setTimeout(() => {
       onChange(value);
-    }, delay ?? DEFAULT_DELAY);
+    }, delay);
   };
 
   const changeHandler = (event) => {
     changeWithDebounce(event?.target?.value ?? "");
   };
-  const clearButtonClickHandler = () => {
+  const handleButtonClick = () => {
+    if (isEmpty()) {
+      return;
+    }
+
     changeWithDebounce("");
   };
 
   return (
     <div className={styles.wrapper}>
       <input value={value} onChange={changeHandler} className={styles.search} />
-      <button
-        className={styles.iconButton}
-        onClick={!isEmpty ? clearButtonClickHandler : undefined}
-      >
-        <i
-          class={`fa-solid ${
-            !isEmpty ? "fa-circle-xmark" : "fa-magnifying-glass"
-          }`}
-        ></i>
+      <button className={styles.iconButton} onClick={handleButtonClick}>
+        <i className={`fa-solid ${BUTTON_ICONS[isEmpty()]}`}></i>
       </button>
     </div>
   );
