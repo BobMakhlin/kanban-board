@@ -1,6 +1,6 @@
 import styles from "./SearchInput.module.css";
 import { useEffect, useState } from "react";
-import { useRef } from "react";
+import { useCallback } from "react";
 
 const DEFAULT_DELAY = 1000;
 const BUTTON_ICONS = {
@@ -8,40 +8,47 @@ const BUTTON_ICONS = {
   true: "fa-magnifying-glass",
 };
 
+let timeoutId;
+
 const SearchInput = ({ onChange, delay = DEFAULT_DELAY }) => {
   const [value, setValue] = useState("");
-  const timeoutId = useRef();
 
   useEffect(() => {
     return () => {
-      clearTimeout(timeoutId.current);
+      clearTimeout(timeoutId);
     };
   }, []);
 
-  const isEmpty = () => {
+  const isEmpty = useCallback(() => {
     return value === "";
-  };
+  }, [value]);
 
-  const changeWithDebounce = (value) => {
-    setValue(value);
+  const changeWithDebounce = useCallback(
+    (value) => {
+      setValue(value);
 
-    clearTimeout(timeoutId.current);
+      clearTimeout(timeoutId);
 
-    timeoutId.current = setTimeout(() => {
-      onChange(value);
-    }, delay);
-  };
+      timeoutId = setTimeout(() => {
+        onChange(value);
+      }, delay);
+    },
+    [onChange, delay]
+  );
 
-  const changeHandler = (event) => {
-    changeWithDebounce(event?.target?.value ?? "");
-  };
-  const handleButtonClick = () => {
+  const changeHandler = useCallback(
+    (event) => {
+      changeWithDebounce(event?.target?.value ?? "");
+    },
+    [changeWithDebounce]
+  );
+
+  const handleButtonClick = useCallback(() => {
     if (isEmpty()) {
       return;
     }
-
     changeWithDebounce("");
-  };
+  }, [isEmpty, changeWithDebounce]);
 
   return (
     <div className={styles.wrapper}>
