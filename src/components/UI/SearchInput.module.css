@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  height: 2em;
+  background-color: #d3d3d3;
+  border: 0;
+  border-radius: 2px;
+  padding-right: 2em;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.iconButton {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: black;
+  position: relative;
+  font-size: 1.2em;
+  left: -1.2em;
+  cursor: pointer;
+}

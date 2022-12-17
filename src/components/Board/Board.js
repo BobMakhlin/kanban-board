@@ -1,5 +1,6 @@
+import { useCallback } from "react";
 import { useState } from "react";
-import Search from "../UI/Search";
+import SearchInput from "../UI/SearchInput";
 import styles from "./Board.module.css";
 import BoardColumn from "./BoardColumn";
 
@@ -14,12 +15,14 @@ const Board = (props) => {
       .filter((ticket) => ticket.categoryId === categoryId);
   };
 
+  const handleSearchInputChange = useCallback((value) => setSearchValue(value), []);
+
   return (
     <div className={styles.board}>
       <h1>Board</h1>
 
       <div className={styles.toolbar}>
-        <Search onChange={(value) => setSearchValue(value)} />
+        <SearchInput onChange={handleSearchInputChange} />
       </div>
 
       <div className={styles.tickets}>
