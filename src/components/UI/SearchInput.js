@@ -1,6 +1,8 @@
 import styles from "./SearchInput.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useCallback } from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 const DEFAULT_DELAY = 1000;
 const BUTTON_ICONS = {
@@ -11,20 +13,24 @@ const BUTTON_ICONS = {
 let timeoutId;
 
 const SearchInput = ({ onChange, delay = DEFAULT_DELAY }) => {
+  const isMounted = useRef(false);
   const [value, setValue] = useState("");
 
   useEffect(() => {
+    isMounted.current = true;
     return () => {
-      clearTimeout(timeoutId);
+      isMounted.current = false;
     };
   }, []);
 
-  const isEmpty = useCallback(() => {
-    return value === "";
-  }, [value]);
+  const isEmpty = value === "";
 
   const changeWithDebounce = useCallback(
     (value) => {
+      if (!isMounted) {
+        return;
+      }
+      
       setValue(value);
 
       clearTimeout(timeoutId);
@@ -44,7 +50,7 @@ const SearchInput = ({ onChange, delay = DEFAULT_DELAY }) => {
   );
 
   const handleButtonClick = useCallback(() => {
-    if (isEmpty()) {
+    if (isEmpty) {
       return;
     }
     changeWithDebounce("");
@@ -54,7 +60,7 @@ const SearchInput = ({ onChange, delay = DEFAULT_DELAY }) => {
     <div className={styles.wrapper}>
       <input value={value} onChange={changeHandler} className={styles.search} />
       <button className={styles.iconButton} onClick={handleButtonClick}>
-        <i className={`fa-solid ${BUTTON_ICONS[isEmpty()]}`}></i>
+        <i className={`fa-solid ${BUTTON_ICONS[isEmpty]}`}></i>
       </button>
     </div>
   );
