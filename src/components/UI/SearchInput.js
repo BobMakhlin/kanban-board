@@ -10,11 +10,10 @@ const BUTTON_ICONS = {
   true: "fa-magnifying-glass",
 };
 
-let timeoutId;
-
 const SearchInput = ({ onChange, delay = DEFAULT_DELAY }) => {
   const isMounted = useRef(false);
   const [value, setValue] = useState("");
+  const isEmpty = value === "";
 
   useEffect(() => {
     isMounted.current = true;
@@ -23,38 +22,30 @@ const SearchInput = ({ onChange, delay = DEFAULT_DELAY }) => {
     };
   }, []);
 
-  const isEmpty = value === "";
-
-  const changeWithDebounce = useCallback(
-    (value) => {
+  useEffect(() => {
+    const id = setTimeout(() => {
       if (!isMounted) {
         return;
       }
-      
-      setValue(value);
 
-      clearTimeout(timeoutId);
+      onChange(value);
+    }, delay);
 
-      timeoutId = setTimeout(() => {
-        onChange(value);
-      }, delay);
-    },
-    [onChange, delay]
-  );
+    return () => {
+      clearTimeout(id);
+    };
+  }, [value, onChange, delay]);
 
-  const changeHandler = useCallback(
-    (event) => {
-      changeWithDebounce(event?.target?.value ?? "");
-    },
-    [changeWithDebounce]
-  );
+  const changeHandler = useCallback((event) => {
+    setValue(event?.target?.value ?? "");
+  }, []);
 
   const handleButtonClick = useCallback(() => {
     if (isEmpty) {
       return;
     }
-    changeWithDebounce("");
-  }, [isEmpty, changeWithDebounce]);
+    setValue("");
+  }, [isEmpty]);
 
   return (
     <div className={styles.wrapper}>
